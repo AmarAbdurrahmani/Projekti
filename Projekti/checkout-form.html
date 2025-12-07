@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Ngjitu</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #D6277D;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D6277D;
+        }
+
+        .nav-login-btn {
+            background-color: #D6277D;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: 0.2s ease;
+        }
+
+        .nav-login-btn:hover {
+            background-color: #ff0c91;
+        }
+
+        /* FORM WRAPPER */
+        .checkout-container {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .checkout-container h2 {
+            font-size: 32px;
+            color: #D6277D;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .full {
+            grid-column: span 2;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-submit {
+            background-color: #D6277D;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            grid-column: span 2;
+            transition: 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff0c91;
+        }
+
+        footer {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <nav class="main-nav">
+            <a href="home.html" class="logo">Ngjitu</a>
+            <div class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="aboutus.html">Rreth Nesh</a>
+                <a href="detajet-shtegut.html">Aventura</a>
+                <a href="loginform.html" class="nav-login-btn">Hyrja / Register</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <h2>Finalizo Rezervimin</h2>
+
+    <form>
+        <div>
+            <label>Emri</label>
+            <input type="text" placeholder="Shkruani emrin" required>
+        </div>
+
+        <div>
+            <label>Mbiemri</label>
+            <input type="text" placeholder="Shkruani mbiemrin" required>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input type="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div>
+            <label>Numri i Telefonit</label>
+            <input type="text" placeholder="+383 44 000 000" required>
+        </div>
+
+        <div class="full">
+            <label>Adresa</label>
+            <input type="text" placeholder="Lagjja, rruga, numri..." required>
+        </div>
+
+        <div>
+            <label>Zgjidhni Datën</label>
+            <input type="date" required>
+        </div>
+
+        <div>
+            <label>Numri i Personave</label>
+            <select required>
+                <option value="">Zgjidh...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4+</option>
+            </select>
+        </div>
+
+        <div class="full">
+            <label>Shënime Shtesë</label>
+            <textarea placeholder="Nëse keni kërkesa shtesë, shkruani këtu..."></textarea>
+        </div>
+
+        <button class="btn-submit">Konfirmo Rezervimin</button>
+    </form>
+</div>
+
+<footer>
+    © 2025 Ngjitu - Të gjitha të drejtat e rezervuara.
+</footer>
+
+</body>
+</html>
