@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detajet - Blue Eye Spring Trail</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* CSS për të arritur strukturën me dy kolona (Flexbox) */
+        .detail-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex; /* Krijon ndarjen me kolona */
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        /* 60% për imazhin, 40% për përmbajtjen (Foto Gjigande) */
+        .image-column { 
+            flex: 3; 
+            max-width: 60%;
+        }
+        .content-column { 
+            flex: 2; 
+            max-width: 40%;
+        }
+
+        .image-column img { 
+            width: 100%; height: auto; border-radius: 8px; display: block; 
+        }
+
+        /* Stilet e Kartave të Statistikave */
+        .stats-cards {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            flex: 1; 
+            text-align: center;
+            background-color: #f0e6ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .stat-card p:first-child { font-size: 24px; font-weight: bold; color: #6a0dad; margin: 0;}
+
+        /* Responsive: Në celular, vendosni kolonat mbi njëra-tjetrën */
+        @media (max-width: 768px) {
+            .detail-section { flex-direction: column; } 
+            .image-column, .content-column { max-width: 100%; }
+            .stats-cards { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <nav class="main-nav">
+                <a href="home.html" class="logo" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Ngjitu</a>
+                <div class="nav-links">
+                    <a href="home.html">Home</a>
+                    <a href="aboutus.html">Rreth Nesh</a>
+                    <a href="detajet-shtegut.html">Aventura</a>
+                    <a href="loginform.html" class="nav-login-btn">Hyrja / Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <main class="container">
+    <main class="container">
+    <h1>Detajet e Programit: Alpet Shqiptare</h1>
+    <p style="margin-bottom: 30px; font-style: italic;">
+        Mësoni më shumë rreth itinerarit, pajisjeve dhe përfshirjeve.
+    </p>
+
+    <div class="accordion-section">
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
+                <span>Itinerari i Detajuar (Dita 1-3)</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content" style="display: none;">
+                <p><strong>Dita 1:</strong> Nisja nga Tirana, mbërritja në Valbonë, shëtitje e shkurtër në luginë.</p>
+                <p><strong>Dita 2:</strong> Ngjitja drejt Fshatit Theth (kalimi Valbonë-Theth).</p>
+                <p><strong>Dita 3:</strong> Eksplorimi i Syrit të Kaltër (Theth), kthimi në qytet.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
+                <span>Çfarë Përfshihet në Çmim?</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content" style="display: none;">
+                <ul>
+                    <li>Transporti vajtje-ardhje (Tiranë - Alpe - Tiranë).</li>
+                    <li>Akomodimi (3 Nata) në bujtina tradicionale.</li>
+                    <li>Udhërrëfyesi (Guida) profesional për të gjithë shtegun.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">
+                <span>Kërkesat dhe Pajisjet</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content" style="display: none;">
+                <p>Kërkohet një nivel mesatar i fitnesit fizik. Pajisjet e nevojshme: Këpucë për ecje (hiking boots), çantë shpine 40L, rroba të ngrohta dhe të papërshkueshme nga uji.</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 30px; text-align: center;">Gati për të rezervuar? <a href="checkout-form.html" style="color: #D6277D; font-weight: bold;">Plotëso Formularin e Aplikimit</a></p>
+
+    </div>
+</main>
+</main>
+        <div class="detail-section">
+            
+            <div class="image-column">
+                <img src="images/1syrikalter.webp" alt="Blue Eye Spring Trail">
+            </div>
+
+            <div class="content-column">
+                <span class="badge">Moderate</span>
+                <h1>Blue Eye Spring Trail</h1>
+                <p style="color: #666; font-size: 18px; margin-bottom: 20px;">Crystal-clear waters and pristine alpine scenery await on this stunning lakeside adventure.</p>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <p>8.5 km</p>
+                        <p>Distance</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>3-4 hours</p>
+                        <p>Duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>450m gain</p>
+                        <p>Elevation</p>
+                    </div>
+                </div>
+
+                <div class="description-section">
+                    <p>This breathtaking trail takes you through lush forests before opening up to reveal the mesmerizing Blue Eye Spring. The turquoise waters are so clear you can see down to impressive depths.</p>
+                    <p>The trail features well maintained paths with occasional rocky sections. Best visited in late spring or early summer when wildflowers are in full bloom.</p>
+                </div>
+            </div>
+        </div>
+        <div class="detail-section">
+            
+
+            <div class="content-column">
+                <span class="badge">Moderate</span>
+                <h1>Blue Eye Spring Trail</h1>
+                <p style="color: #666; font-size: 18px; margin-bottom: 20px;">Crystal-clear waters and pristine alpine scenery await on this stunning lakeside adventure.</p>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <p>8.5 km</p>
+                        <p>Distance</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>3-4 hours</p>
+                        <p>Duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>450m gain</p>
+                        <p>Elevation</p>
+                    </div>
+                </div>
+
+                <div class="description-section">
+                    <p>This breathtaking trail takes you through lush forests before opening up to reveal the mesmerizing Blue Eye Spring. The turquoise waters are so clear you can see down to impressive depths.</p>
+                    <p>The trail features well maintained paths with occasional rocky sections. Best visited in late spring or early summer when wildflowers are in full bloom.</p>
+                </div>
+            </div>
+                        <div class="image-column">
+                <img src="images/1syrikalter.webp" alt="Blue Eye Spring Trail">
+            </div>
+
+        </div>
+        <div class="detail-section">
+            
+            <div class="image-column">
+                <img src="images/1syrikalter.webp" alt="Blue Eye Spring Trail">
+            </div>
+            
+            <div class="content-column">
+                <span class="badge">Moderate</span>
+                <h1>Blue Eye Spring Trail</h1>
+                <p style="color: #666; font-size: 18px; margin-bottom: 20px;">Crystal-clear waters and pristine alpine scenery await on this stunning lakeside adventure.</p>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <p>8.5 km</p>
+                        <p>Distance</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>3-4 hours</p>
+                        <p>Duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <p>450m gain</p>
+                        <p>Elevation</p>
+                    </div>
+                </div>
+
+                <div class="description-section">
+                    <p>This breathtaking trail takes you through lush forests before opening up to reveal the mesmerizing Blue Eye Spring. The turquoise waters are so clear you can see down to impressive depths.</p>
+                    <p>The trail features well maintained paths with occasional rocky sections. Best visited in late spring or early summer when wildflowers are in full bloom.</p>
+                </div>
+            </div>
+        </div>
+        
+        
+    </main>
+    
+    <footer>
+        <div class="container">
+            &copy; 2025 Ngjitu. Të gjitha të drejtat të rezervuara.
+        </div>
+    </footer>
+
+</body>
+</html>

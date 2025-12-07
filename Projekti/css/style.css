@@ -1,0 +1,161 @@
+/* style.css - Stilet Bazike dhe Primitive - Zëvendësuar me Magenta */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER/NAVIGIMI */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo { 
+    font-size: 24px; font-weight: bold; 
+    color: #D6277D; /* MAGENTA KRYESORE */ 
+    text-decoration: none; 
+}
+
+.nav-links a:hover {
+    color: #FF007F;
+}
+
+.nav-login-btn {
+    background-color: #D6277D; /* MAGENTA KRYESORE */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+main { padding: 30px 0; }
+footer { background-color: #e9ecef; }
+
+
+/* --- 1. STILE PËR FAQEN E DETALEVE --- */
+.detail-section {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    flex: 1; 
+    text-align: center;
+    background-color: #FFEFF5; /* PINK E LEHTË */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.stat-card p:first-child { 
+    font-size: 24px; font-weight: bold; 
+    color: #D6277D; /* MAGENTA KRYESORE */ 
+    margin: 0;
+}
+
+
+/* --- 2. STILE PËR ACCORDION (Dropdown i Detajeve) --- */
+
+.accordion-section { max-width: 800px; margin: 40px auto; }
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    background-color: #FFEFF5; /* PINK E LEHTË */
+    color: #D6277D; /* MAGENTA KRYESORE */
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: #ffd8ec;
+}
+
+/* Përmbajtja e accordion-it fshihet nga default (kërkon JS për t'u shfaqur me klik) */
+.accordion-content {
+    display: none; /* Kjo e fsheh përmbajtjen në mënyrë primitive */
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #eee;
+}
+
+
+/* --- 3. STILE PËR FORMULARIN E CHECKOUT (Të reja) --- */
+
+.checkout-form-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ndarje në dy kolona */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-btn {
+    width: 100%;
+    background-color: #D6277D; /* MAGENTA KRYESORE */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.form-btn:hover {
+    background-color: #FF007F;
+}
+
+/* RESPONSIVE CSS */
+@media (max-width: 768px) {
+    /* ... stilet responsive ekzistuese ... */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
