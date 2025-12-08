@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyrja - Ngjitu</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, Arial, sans-serif;
+            background: #f5f7fa;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            margin: 80px auto;
+            padding: 35px 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin: 0 0 20px;
+            color: #333;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            font-size: 15px;
+            color: #444;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: 0.2s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #D6277D;
+            outline: none;
+            box-shadow: 0 0 4px rgba(214, 39, 125, 0.4);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #D6277D;
+            border: none;
+            color: white;
+            font-size: 17px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .login-btn:hover {
+            background: #ff0c91;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 15px;
+            color: #444;
+        }
+
+        .register-link a {
+            color: #D6277D;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Hyrja</h2>
+
+        <form action="#" method="POST">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Shkruani email-in" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Shkruani fjalëkalimin" required>
+            </div>
+
+            <button type="button" class="login-btn" onclick="window.location.href='home.html'">Hyr</button>
+        </form>
+
+        <p class="register-link">
+            Nuk ke llogari?  
+            <a href="SignUp.html">Krijo një account</a>
+        </p>
+    </div>
+
+</body>
+</html>
