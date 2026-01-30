@@ -68,13 +68,14 @@ include "db.php"; // lidhja me databazën
 <header>
     <div class="nav-container">
         <nav class="main-nav">
-            <a href="home.html" class="logo">Ngjitu</a>
+            <a href="home.php" class="logo">Ngjitu</a>
             <div class="nav-links">
-                <a href="home.html">Home</a>
+                <a href="home.php">Ballina</a>
                 <a href="AboutUs.html">Rreth Nesh</a>
                 <a href="Aventura.html">Aventura</a>
                 <a href="news.php" class="active">Lajme</a>
-                <a href="LogIn.html" class="nav-login-btn">Hyrja / Register</a>
+                <a href="checkout-form.php">Na Kontaktoni</a>
+                <a href="LogIn.html" class="nav-login-btn">Hyrja</a>
             </div>
         </nav>
     </div>

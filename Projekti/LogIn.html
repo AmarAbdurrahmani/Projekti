@@ -4,145 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyrja - Ngjitu</title>
-
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, Arial, sans-serif;
-            background-image: url(images/fotoezeze.png);
-            background-size: cover;
-        }
-
-        .login-container {
-            width: 100%;
-            max-width: 420px;
-            background: white;
-            margin: 80px auto;
-            padding: 35px 40px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .input-group {
-            margin-bottom: 18px;
-        }
-
-        .input-group label {
-            font-size: 14px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 12px;
-            margin-top: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-
-        .login-btn {
-            width: 100%;
-            padding: 12px;
-            background: #D6277D;
-            border: none;
-            color: white;
-            font-size: 16px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .login-btn:hover {
-            background: #ff0c91;
-        }
-
-        .admin-btn {
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            background: #333;
-            color: white;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            display: none;
-        }
-
-        .register-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .register-link a {
-            color: #D6277D;
-            font-weight: bold;
-            text-decoration: none;
-        }
+        body { font-family: system-ui, Arial; background:#f2f2f2; display:flex; justify-content:center; align-items:center; height:100vh; }
+        .container { background:white; padding:35px 40px; border-radius:12px; width:100%; max-width:400px; box-shadow:0 6px 20px rgba(0,0,0,0.1);}
+        h2 { text-align:center; margin-bottom:25px; }
+        .input-group { margin-bottom:15px; }
+        .input-group label { font-size:14px; display:block; margin-bottom:5px; }
+        .input-group input { width:100%; padding:12px; border:1px solid #ccc; border-radius:6px; }
+        .btn { width:100%; padding:12px; background:#D6277D; border:none; color:white; font-size:16px; border-radius:6px; cursor:pointer; }
+        .btn:hover { background:#ff0c91; }
+        .signup-link { text-align:center; margin-top:15px; }
+        .signup-link a { color:#D6277D; text-decoration:none; font-weight:bold; }
     </style>
 </head>
-
 <body>
 
-<div class="login-container">
+<div class="container">
     <h2>Hyrja</h2>
-
     <div class="input-group">
         <label>Email</label>
         <input type="email" id="email" placeholder="email@example.com">
     </div>
-
     <div class="input-group">
         <label>Password</label>
         <input type="password" id="password" placeholder="******">
     </div>
-
-    <button class="login-btn" onclick="login()">Hyr</button>
-
-    <button class="admin-btn" id="adminBtn" onclick="adminLogin()">Hyr si Admin</button>
-
-    <p class="register-link">
-        Nuk ke llogari?
-        <a href="SignUp.html">Krijo një account</a>
-    </p>
+    <button class="btn" onclick="login()">Hyr</button>
+    <p class="signup-link">Nuk ke llogari? <a href="SignUp.html">Krijo një account</a></p>
 </div>
 
 <script>
-    const adminEmail = "admin@ngjitu.com";
-    const adminPassword = "admin123";
+function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    const adminBtn = document.getElementById("adminBtn");
-
-    function login() {
-        if (emailInput.value === "" || passwordInput.value === "") {
-            alert("Plotësoni të gjitha fushat!");
-            return;
-        }
-
-        // nëse është admin → shfaq butonin admin
-        if (emailInput.value === adminEmail) {
-            adminBtn.style.display = "block";
-            alert("Email admin i detektuar. Kliko 'Hyr si Admin'");
-        } else {
-            window.location.href = "home.html";
-        }
+    if (!email || !password) {
+        alert("Plotësoni të gjitha fushat!");
+        return;
     }
 
-    function adminLogin() {
-        if (
-            emailInput.value === adminEmail &&
-            passwordInput.value === adminPassword
-        ) {
+    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    let user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        if (user.role === "admin") {
+            // Hyn admin
             window.location.href = "admin_news.php";
         } else {
-            alert("Të dhënat e adminit janë gabim!");
+            // Hyn përdorues normal
+            window.location.href = "home.html";
         }
+    } else {
+        alert("Email ose password i gabuar!");
     }
+}
 </script>
 
 </body>
