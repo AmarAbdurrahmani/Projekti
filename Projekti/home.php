@@ -28,6 +28,7 @@ if (!$page) {
     <div class="nav-container">
         <nav class="main-nav">
             <a href="home.php" class="logo">Ngjitu</a>
+            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">&#9776;</a>
             <div class="nav-links">
                 <a href="home.php" class="active">Ballina</a>
                 <a href="AboutUs.html">Rreth Nesh</a>
@@ -52,43 +53,73 @@ if (!$page) {
     <?= $page['content'] ?>  <!-- Këtu shfaqim HTML direkt nga databaza -->
 </main>
 
-<!-- FAQ Section -->
-<section class="faq-section" style="max-width:900px;margin:50px auto;padding:20px;background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);">
-    <h2 style="text-align:center;color:#6a0dad;margin-bottom:30px;">Pyetje të Shpeshta</h2>
 
-    <div class="faq-item" style="margin-bottom:15px;">
-        <div class="faq-question" style="cursor:pointer;padding:15px;background:#f0e6ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;"
-             onclick="toggleFAQ(this)">
+<!-- Slider Section -->
+<section class="slider">
+    <div class="slider-wrapper">
+        <div class="slide active" style="background-image:url('images/rugova_canyon.png')">
+            <div class="slide-content">
+                <h2>Rugova Canyon</h2>
+                <p>Një nga destinacionet më të bukura për hiking</p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url('images/valbona.png')">
+            <div class="slide-content">
+                <h2>Valbona</h2>
+                <p>Natyra e paprekur dhe shtigje magjike</p>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url('images/bjeshket.png')">
+            <div class="slide-content">
+                <h2>Bjeshkët e Nemuna</h2>
+                <p>Aventura që nuk harrohet</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="slider-btn prev" onclick="prevSlide()">‹</button>
+    <button class="slider-btn next" onclick="nextSlide()">›</button>
+</section>
+
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <h2>Pyetje të Shpeshta</h2>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
             <span>Si mund të rezervoj një shteg?</span>
             <span class="faq-icon">+</span>
         </div>
-        <div class="faq-answer" style="display:none;padding:15px;background:#fff;border-left:3px solid #6a0dad;margin-top:5px;">
-            Ju mund të rezervoni duke klikuar butonin 'Plotëso Formularin e Aplikimit' në fund të faqes Home ose direkt tek Na Kontaktoni.
+        <div class="faq-answer">
+            Ju mund të rezervoni duke klikuar butonin "Plotëso Formularin e Aplikimit"
+            ose direkt tek Na Kontaktoni.
         </div>
     </div>
 
-    <div class="faq-item" style="margin-bottom:15px;">
-        <div class="faq-question" style="cursor:pointer;padding:15px;background:#f0e6ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;"
-             onclick="toggleFAQ(this)">
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
             <span>A mund të ndryshoj datën pas rezervimit?</span>
             <span class="faq-icon">+</span>
         </div>
-        <div class="faq-answer" style="display:none;padding:15px;background:#fff;border-left:3px solid #6a0dad;margin-top:5px;">
-            Po, mund të ndryshoni datën duke kontaktuar ekipin tonë përmes formularit të kontaktit.
+        <div class="faq-answer">
+            Po, mund të ndryshoni datën duke kontaktuar ekipin tonë.
         </div>
     </div>
 
-    <div class="faq-item" style="margin-bottom:15px;">
-        <div class="faq-question" style="cursor:pointer;padding:15px;background:#f0e6ff;border-radius:8px;display:flex;justify-content:space-between;align-items:center;"
-             onclick="toggleFAQ(this)">
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
             <span>A ofrohet udhërrëfyes profesional?</span>
             <span class="faq-icon">+</span>
         </div>
-        <div class="faq-answer" style="display:none;padding:15px;background:#fff;border-left:3px solid #6a0dad;margin-top:5px;">
-            Po, të gjitha shtegët shoqërohen nga udhërrëfyes profesional për të siguruar një përvojë të sigurt dhe të këndshme.
+        <div class="faq-answer">
+            Po, të gjitha shtegët shoqërohen nga udhërrëfyes profesional.
         </div>
     </div>
 </section>
+
 
 <script>
 function toggleFAQ(element){
@@ -110,9 +141,38 @@ function toggleFAQ(element){
 
 <footer>
     <div class="container">
-        &copy; 2025 Ngjitu. Të gjitha të drejtat të rezervuara.
+        &copy; 2026 Ngjitu. Të gjitha të drejtat të rezervuara.
     </div>
 </footer>
+<script>
+function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    nav.classList.toggle('show');
+}
+</script>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+/* Auto slide */
+setInterval(nextSlide, 5000);
+</script>
+
 
 </body>
 </html>
