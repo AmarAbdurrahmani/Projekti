@@ -1,4 +1,20 @@
-<?php include "db.php"; ?>
+<?php 
+include "db.php";
+require_once "News1.php";
+
+$news = new News($conn);
+
+if(isset($_POST['save'])){
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+
+    if($news->insert($title, $content)){
+        echo "Lajmi u shtua me sukses!";
+    } else {
+        echo "Gabim gjatë shtimit";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -14,16 +30,6 @@
     <textarea name="content" placeholder="Përmbajtja" required></textarea><br><br>
     <button name="save">Shto</button>
 </form>
-
-<?php
-if(isset($_POST['save'])){
-    $title = $_POST['title'];
-    $content = $_POST['content'];
-
-    mysqli_query($conn,"INSERT INTO news(title,content) VALUES('$title','$content')");
-    echo "Lajmi u shtua ✔";
-}
-?>
 
 </body>
 </html>
