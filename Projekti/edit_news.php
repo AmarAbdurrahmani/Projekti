@@ -1,24 +1,34 @@
 <?php
 include "db.php";
-$id = $_GET['id'];
+require_once "News1.php";
 
-$news = mysqli_fetch_assoc(
-    mysqli_query($conn,"SELECT * FROM news WHERE id=$id")
-);
+$newsObj = new News($conn);
 
+$id = $_GET['id'] ?? 0; // merr id nga URL, default 0
+
+// Merr lajmin sipas ID
+$news = $newsObj->getById($id);
+
+if(!$news){
+    die("Lajmi nuk u gjet!");
+}
+
+// Update lajmi
 if(isset($_POST['update'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
 
-    mysqli_query($conn,
-    "UPDATE news SET title='$title', content='$content' WHERE id=$id");
-
-    header("Location: read_news.php");
+    if($newsObj->update($id, $title, $content)){
+        header("Location: read_news.php");
+        exit;
+    } else {
+        echo "Gabim gjatë përditësimit";
+    }
 }
 ?>
 
 <form method="POST">
-    <input type="text" name="title" value="<?= $news['title'] ?>"><br><br>
-    <textarea name="content"><?= $news['content'] ?></textarea><br><br>
+    <input type="text" name="title" value="<?= htmlspecialchars($news['title']) ?>" required><br><br>
+    <textarea name="content" required><?= htmlspecialchars($news['content']) ?></textarea><br><br>
     <button name="update">Update</button>
 </form>
