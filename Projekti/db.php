@@ -1,9 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost","root","","ngjitu");
-
-if(!$conn){
-    die("Nuk u lidh databaza");
-}
-
 session_start();
-?>
+
+require_once "Database.php";
+
+$db = new Database();
+$conn = $db->getConnection();
