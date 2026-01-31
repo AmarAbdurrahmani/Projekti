@@ -146,6 +146,58 @@
             margin-top: 40px;
             color: #555;
         }
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #D6277D;
+        }
+
+        
+
+        @media (max-width: 768px) {
+            .nav-container { padding: 0 20px; box-sizing: border-box; }
+            .hamburger { display: block; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                left: auto;
+                width: auto;
+                max-width: 100vw;
+                box-sizing: border-box;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                border-radius: 0 0 8px 8px;
+                z-index: 1000;
+                padding: 8px 0;
+                overflow-x: hidden;
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a { padding: 12px 16px; border-bottom: 1px solid #eee; width: 100%; box-sizing: border-box; }
+
+            /* Gallery adjustments for small screens */
+            .gallery-container {
+                width: 95%;
+                gap: 18px;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                padding-bottom: 60px;
+            }
+            .gallery-item img {
+                height: 200px;
+                object-fit: cover;
+                width: 100%;
+                display: block;
+            }
+
+            /* prevent horizontal scroll on small devices */
+            html, body { overflow-x: hidden; }
+        }
+    
     </style>
 </head>
 <body>
@@ -153,13 +205,15 @@
     <header>
         <div class="nav-container">
             <nav class="main-nav">
-                <a href="home.html" class="logo" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Ngjitu</a>
+                <a href="home.php" class="logo">Ngjitu</a>
+                <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">&#9776;</a>
                 <div class="nav-links">
-                    <a href="home.html">Home</a>
+                    <a href="home.php" class="active">Ballina</a>
                     <a href="AboutUs.html">Rreth Nesh</a>
                     <a href="Aventura.html">Aventura</a>
-                    <a href="news.html" class="active">Lajme</a>
-                    <a href="LogIn.html" class="nav-login-btn">Hyrja / Register</a>
+                    <a href="news.php">Lajme</a>
+                    <a href="checkout-form.php">Na Kontaktoni</a>
+                    <a href="LogIn.html" class="nav-login-btn">Hyrja</a>
                 </div>
             </nav>
         </div>
@@ -170,7 +224,7 @@
     <div class="gallery-container">
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/valbona.png" alt="">
             <div class="info">
                 <h3>Valbona - Theth</h3>
                 <p>12km • 1050m lartësi • 5-7 orë</p>
@@ -178,7 +232,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/rugova_canyon.png" alt="">
             <div class="info">
                 <h3>Rugova Canyon</h3>
                 <p>Shteg i lehtë • Pamje fantastike malore</p>
@@ -186,7 +240,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/1syrikalter.webp" alt="">
             <div class="info">
                 <h3>Blue Eye Spring</h3>
                 <p>8.5km • Ujëvara kristal</p>
@@ -202,7 +256,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/jezerca.webp" alt="">
             <div class="info">
                 <h3>Maja e Jezercës</h3>
                 <p>Shteg i vështirë • Pamje epike</p>
@@ -210,7 +264,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/sharr.webp" alt="">
             <div class="info">
                 <h3>Sharr Mountains</h3>
                 <p>Rrugë alpine mes pyjeve</p>
@@ -218,7 +272,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/valbona.png" alt="">
             <div class="info">
                 <h3>Valbona - Theth</h3>
                 <p>12km • 1050m lartësi • 5-7 orë</p>
@@ -226,7 +280,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/rugova_canyon.png" alt="">
             <div class="info">
                 <h3>Rugova Canyon</h3>
                 <p>Shteg i lehtë • Pamje fantastike malore</p>
@@ -234,7 +288,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/1syrikalter.webp" alt="">
             <div class="info">
                 <h3>Blue Eye Spring</h3>
                 <p>8.5km • Ujëvara kristal</p>
@@ -250,7 +304,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/jezerca.webp" alt="">
             <div class="info">
                 <h3>Maja e Jezercës</h3>
                 <p>Shteg i vështirë • Pamje epike</p>
@@ -258,7 +312,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/sharr.webp" alt="">
             <div class="info">
                 <h3>Sharr Mountains</h3>
                 <p>Rrugë alpine mes pyjeve</p>
@@ -266,7 +320,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/valbona.png" alt="">
             <div class="info">
                 <h3>Valbona - Theth</h3>
                 <p>12km • 1050m lartësi • 5-7 orë</p>
@@ -274,7 +328,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/rugova_canyon.png" alt="">
             <div class="info">
                 <h3>Rugova Canyon</h3>
                 <p>Shteg i lehtë • Pamje fantastike malore</p>
@@ -282,7 +336,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/1syrikalter.webp" alt="">
             <div class="info">
                 <h3>Blue Eye Spring</h3>
                 <p>8.5km • Ujëvara kristal</p>
@@ -298,7 +352,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/jezerca.webp" alt="">
             <div class="info">
                 <h3>Maja e Jezercës</h3>
                 <p>Shteg i vështirë • Pamje epike</p>
@@ -306,7 +360,7 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/sharr.webp" alt="">
             <div class="info">
                 <h3>Sharr Mountains</h3>
                 <p>Rrugë alpine mes pyjeve</p>
@@ -314,18 +368,18 @@
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/valbona.png" alt="">
             <div class="info">
-                <h3>Maja e Jezercës</h3>
-                <p>Shteg i vështirë • Pamje epike</p>
+                <h3>Valbona - Theth</h3>
+                <p>12km • 1050m lartësi • 5-7 orë</p>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="images/image2.webp" alt="">
+            <img src="images/rugova_canyon.png" alt="">
             <div class="info">
-                <h3>Sharr Mountains</h3>
-                <p>Rrugë alpine mes pyjeve</p>
+                <h3>Rugova Canyon</h3>
+                <p>Shteg i lehtë • Pamje fantastike malore</p>
             </div>
         </div>
 
@@ -334,9 +388,15 @@
 
     <footer>
         <div class="container">
-            &copy; 2025 Ngjitu. Të gjitha të drejtat të rezervuara.
+            &copy; 2026 Ngjitu. Të gjitha të drejtat të rezervuara.
         </div>
     </footer>
 
+    <script>
+    function toggleMenu() {
+        const nav = document.querySelector('.nav-links');
+        nav.classList.toggle('show');
+    }
+    </script>
 </body>
 </html>
