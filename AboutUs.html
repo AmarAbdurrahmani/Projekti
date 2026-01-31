@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rreth Nesh - Ngjitu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* HEADER */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #D6277D;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #D6277D;
+        }
+
+        .nav-login-btn {
+            background-color: #D6277D;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.2s ease;
+        }
+
+        .nav-login-btn:hover {
+            background-color: #ff0c91;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-section img {
+            width: 45%;
+            border-radius: 12px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #D6277D;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* OUR VALUES */
+        .values {
+            padding: 60px 40px;
+            background-color: #fff;
+        }
+
+        .values h2 {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 40px;
+            color: #D6277D;
+        }
+
+        .values-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-box {
+            background-color: #f1f1f1;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .value-box h3 {
+            color: #D6277D;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #e9ecef;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <nav class="main-nav">
+            <a href="home.php" class="logo">Ngjitu</a>
+            <div class="nav-links">
+                <a href="home.php">Ballina</a>
+                <a href="AboutUs.html">Rreth Nesh</a>
+                <a href="Aventura.html">Aventura</a>
+                <a href="news.php" class="active">Lajme</a>
+                <a href="checkout-form.php">Na Kontaktoni</a>
+                <a href="LogIn.html" class="nav-login-btn">Hyrja</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Rreth Nesh</h1>
+    <p>Ne jemi komuniteti që i lidh njerëzit me natyrën dhe aventurat e jashtëzakonshme.</p>
+</section>
+
+<section class="about-section">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Hiking Image">
+
+    <div class="about-text">
+        <h2>Kush Jemi Ne?</h2>
+        <p>
+            Ngjitu është platforma e dedikuar për të gjithë adhuruesit e ecjes malore, aventurave dhe eksplorimit.
+            Ne organizojmë ture, shtegtimet më të bukura dhe përvoja unike për njerëzit që duan të shkëputen nga rutina
+            dhe të lidhen me natyrën.
+        </p>
+        <p>
+            Me një ekip profesionistësh dhe guidash të certifikuara, ne sigurojmë aventura të sigurta, të paharrueshme
+            dhe të qasshme për të gjitha grupmoshat.
+        </p>
+    </div>
+</section>
+
+<section class="values">
+    <h2>Vlerat Tona</h2>
+    <div class="values-grid">
+        <div class="value-box">
+            <h3>Pasion</h3>
+            <p>Ne e duam natyrën dhe duam ta ndajmë këtë pasion me ju.</p>
+        </div>
+        <div class="value-box">
+            <h3>Siguri</h3>
+            <p>Siguria e pjesëmarrësve është prioriteti ynë kryesor.</p>
+        </div>
+        <div class="value-box">
+            <h3>Komunitet</h3>
+            <p>Ne ndërtojmë lidhje, miqësi dhe eksperienca që zgjasin gjatë.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 Ngjitu - Të gjitha të drejtat e rezervuara.
+</footer>
+
+</body>
+</html>
