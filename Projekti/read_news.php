@@ -1,17 +1,21 @@
-<?php include "db.php"; ?>
+<?php
+include "db.php";
+require_once "News1.php";
+
+$news = new News($conn);
+
+// Merr të gjitha lajmet me OOP
+$result = $news->getAll();
+?>
 
 <h2>Lajmet</h2>
 
-<?php
-$result = mysqli_query($conn,"SELECT * FROM news");
+<?php while($row = $result->fetch_assoc()): ?>
+    <h3><?= htmlspecialchars($row['title']) ?></h3>
+    <p><?= nl2br(htmlspecialchars($row['content'])) ?></p>
 
-while($row = mysqli_fetch_assoc($result)){
-?>
-<h3><?= $row['title'] ?></h3>
-<p><?= $row['content'] ?></p>
+    <a href="edit_news.php?id=<?= $row['id'] ?>">Edit</a> |
+    <a href="delete_news.php?id=<?= $row['id'] ?>" onclick="return confirm('A je i sigurt?')">Delete</a>
 
-<a href="edit_news.php?id=<?= $row['id'] ?>">Edit</a> |
-<a href="delete_news.php?id=<?= $row['id'] ?>" onclick="return confirm('A je i sigurt?')">Delete</a>
-
-<hr>
-<?php } ?>
+    <hr>
+<?php endwhile; ?>
