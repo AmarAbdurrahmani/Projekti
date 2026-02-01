@@ -1,5 +1,12 @@
 <?php
-include "db.php"; // lidhja me databazën
+include "db.php";
+require_once "News1.php";
+
+// OOP: krijojmë objekt
+$newsObj = new News($conn);
+
+// Marrim lajmet
+$result = $newsObj->getAll();
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +55,15 @@ include "db.php"; // lidhja me databazën
         .read-more {
             display: inline-block;
             margin-top: 15px;
-            color: #6a0dad;
+            color: #D6277D;
             font-weight: bold;
             text-decoration: none;
+        }
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #D6277D;
         }
 
         @media (max-width: 768px) {
@@ -61,6 +74,44 @@ include "db.php"; // lidhja me databazën
                 max-width: 100%;
             }
         }
+
+        @media (max-width: 768px) {
+            .nav-container { padding: 0 20px; box-sizing: border-box; }
+            .hamburger { display: block; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                left: auto;
+                width: auto;
+                max-width: 100vw;
+                box-sizing: border-box;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+                border-radius: 0 0 8px 8px;
+                z-index: 1000;
+                padding: 8px 0;
+                overflow-x: hidden;
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a { padding: 12px 16px; border-bottom: 1px solid #eee; width: 100%; box-sizing: border-box; }
+
+            .news-section {
+                flex-direction: column;
+            }
+            .news-image, .news-content {
+                max-width: 100%;
+            }
+            .news-image img { width: 100%; height: auto; display: block; }
+
+            /* prevent horizontal scroll on small devices */
+            html, body { overflow-x: hidden; }
+        }
+   
     </style>
 </head>
 <body>
@@ -69,11 +120,12 @@ include "db.php"; // lidhja me databazën
     <div class="nav-container">
         <nav class="main-nav">
             <a href="home.php" class="logo">Ngjitu</a>
+            <a href="javascript:void(0);" class="hamburger" onclick="toggleMenu()">&#9776;</a>
             <div class="nav-links">
-                <a href="home.php">Ballina</a>
+                <a href="home.php" class="active">Ballina</a>
                 <a href="AboutUs.html">Rreth Nesh</a>
                 <a href="Aventura.html">Aventura</a>
-                <a href="news.php" class="active">Lajme</a>
+                <a href="news.php">Lajme</a>
                 <a href="checkout-form.php">Na Kontaktoni</a>
                 <a href="LogIn.html" class="nav-login-btn">Hyrja</a>
             </div>
@@ -90,16 +142,10 @@ include "db.php"; // lidhja me databazën
 <main class="container">
 
 <?php
-// Merr lajmet nga databaza
-$result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC");
+// Loop për secilin lajm (OOP data source)
+while ($row = $result->fetch_assoc()) {
 
-// Loop për secilin lajm
-while($row = mysqli_fetch_assoc($result)){
-
-    // Imazh default për lajmet (mund të ndryshohet)
     $image = "images/image2.webp";
-
-    // Data formatuar
     $date = date("d M Y", strtotime($row['created_at']));
 
     echo '
@@ -111,7 +157,7 @@ while($row = mysqli_fetch_assoc($result)){
             <div class="news-meta">'.$date.'</div>
             <h2>'.htmlspecialchars($row['title']).'</h2>
             <p>'.nl2br(htmlspecialchars($row['content'])).'</p>
-            <a href="#" class="read-more">Lexo më shumë →</a>
+            <a href="AboutUs.html" class="read-more">Lexo më shumë →</a>
         </div>
     </div>
     ';
@@ -122,9 +168,14 @@ while($row = mysqli_fetch_assoc($result)){
 
 <footer>
     <div class="container">
-        &copy; 2025 Ngjitu. Të gjitha të drejtat të rezervuara.
+        &copy; 2026 Ngjitu. Të gjitha të drejtat të rezervuara.
     </div>
 </footer>
-
+<script>
+function toggleMenu() {
+    const nav = document.querySelector('.nav-links');
+    nav.classList.toggle('show');
+}
+</script>
 </body>
 </html>
