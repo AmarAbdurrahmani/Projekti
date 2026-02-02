@@ -48,10 +48,8 @@ function login() {
 
     if (user) {
         if (user.role === "admin") {
-            // Hyn admin
             window.location.href = "admin_news.php";
         } else {
-            // Hyn përdorues normal
             window.location.href = "home.php";
         }
     } else {
