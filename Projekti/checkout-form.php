@@ -136,17 +136,16 @@
 
         .hamburger { display: block; }
 
-        /* mobile nav overlay */
         .nav-links {
             display: none;
             flex-direction: column;
             gap: 10px;
             position: absolute;
             top: 80px;
-            right: 0;               /* align to viewport edge */
+            right: 0;               
             left: auto;
-            width: auto;            /* responsive width */
-            max-width: 100vw;       /* never exceed viewport width */
+            width: auto;           
+            max-width: 100vw;       
             box-sizing: border-box;
             background: #fff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.08);
@@ -158,7 +157,6 @@
         .nav-links.show { display: flex; }
         .nav-links a { padding: 12px 16px; border-bottom: 1px solid #eee; width: 100%; box-sizing: border-box; }
 
-        /* Checkout form becomes single column on mobile */
         form {
             grid-template-columns: 1fr;
         }
@@ -170,7 +168,6 @@
             width: 95%;
         }
 
-        /* prevent horizontal scroll on small devices */
         html, body { overflow-x: hidden; }
     }
         
@@ -249,21 +246,18 @@
 
 <script>
 document.getElementById("checkoutForm").addEventListener("submit", function(e){
-    e.preventDefault(); // ndalon reload të formës
+    e.preventDefault(); 
 
-    // marrim të dhënat e formës
     let formData = new FormData(this);
 
-    // AJAX
+    
     fetch('save_reservation.php', {
         method: 'POST',
         body: formData
     })
     .then(response => response.text())
     .then(data => {
-        // alert për sukses
         alert("Rezervimi u krye me sukses!");
-        // ridrejtim
         window.location.href = "home.php";
     })
     .catch(error => {
