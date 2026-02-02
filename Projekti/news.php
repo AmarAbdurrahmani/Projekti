@@ -2,10 +2,8 @@
 include "db.php";
 require_once "News1.php";
 
-// OOP: krijojmë objekt
 $newsObj = new News($conn);
 
-// Marrim lajmet
 $result = $newsObj->getAll();
 ?>
 
@@ -108,7 +106,6 @@ $result = $newsObj->getAll();
             }
             .news-image img { width: 100%; height: auto; display: block; }
 
-            /* prevent horizontal scroll on small devices */
             html, body { overflow-x: hidden; }
         }
    
@@ -142,7 +139,6 @@ $result = $newsObj->getAll();
 <main class="container">
 
 <?php
-// Loop për secilin lajm (OOP data source)
 while ($row = $result->fetch_assoc()) {
 
     $image = "images/image2.webp";
