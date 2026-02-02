@@ -1,16 +1,16 @@
 <?php
 include "db.php";
 
-// Shto lajmin
+
+
 if(isset($_POST['add_news'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
 
     mysqli_query($conn, "INSERT INTO news(title, content) VALUES('$title','$content')");
-    header("Location: admin_news.php"); // rifreskon faqen
+    header("Location: admin_news.php");
 }
 
-// Update lajmin
 if(isset($_POST['update_news'])){
     $id = $_POST['id'];
     $title = $_POST['title'];
@@ -20,14 +20,12 @@ if(isset($_POST['update_news'])){
     header("Location: admin_news.php");
 }
 
-// Delete lajmin
 if(isset($_GET['delete'])){
     $id = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM news WHERE id=$id");
     header("Location: admin_news.php");
 }
 
-// Nese po edit, merr te dhenat e lajmit
 $edit_title = "";
 $edit_content = "";
 $edit_id = 0;
@@ -37,36 +35,39 @@ if(isset($_GET['edit'])){
     $edit_title = $row['title'];
     $edit_content = $row['content'];
 }
+
+$reservimet = mysqli_query($conn, "SELECT * FROM reservations ORDER BY created_at DESC");
 ?>
 
 <!DOCTYPE html>
 <html lang="sq">
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Menaxho Lajmet</title>
+    <title>Admin Dashboard - Lajme & Rezervime</title>
     <style>
         body { font-family: system-ui, Arial; margin: 0; padding: 0; background: #f4f4f4; }
         header { background: #333; color: white; padding: 15px 30px; }
-        .container { padding: 20px; max-width: 900px; margin: auto; }
-        h2 { margin-top: 0; }
+        .container { padding: 20px; max-width: 1000px; margin: auto; }
+        h2, h3 { margin-top: 0; }
         form { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; }
         input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #ccc; }
         button { padding: 10px 15px; border: none; border-radius: 6px; background: #6a0dad; color: white; cursor: pointer; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
-        th, td { padding: 12px; border-bottom: 1px solid #ccc; text-align: left; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; margin-bottom: 40px; }
+        th, td { padding: 12px; border-bottom: 1px solid #ccc; text-align: left; vertical-align: top; }
         a { color: #6a0dad; text-decoration: none; }
         a.delete { color: crimson; }
+        .logout { margin-top: 20px; padding: 10px 15px; border: none; border-radius: 6px; background: #555; color: white; cursor: pointer; }
+        .logout:hover { background: #333; }
     </style>
 </head>
 <body>
 
 <header>
-    <h2>Admin - Menaxho Lajmet</h2>
+    <h2>Admin Dashboard - Menaxho Lajmet & Rezervimet</h2>
 </header>
 
 <div class="container">
 
-    <!-- Form Shto / Edit -->
     <form method="POST">
         <h3><?php echo $edit_id ? "Edito Lajmin" : "Shto Lajm të Ri"; ?></h3>
         <input type="hidden" name="id" value="<?= $edit_id ?>">
@@ -80,7 +81,6 @@ if(isset($_GET['edit'])){
         <?php endif; ?>
     </form>
 
-    <!-- Lista e lajmeve -->
     <h3>Të Gjitha Lajmet</h3>
     <table>
         <thead>
@@ -111,13 +111,48 @@ if(isset($_GET['edit'])){
         </tbody>
     </table>
 
+    <h3>Të Gjitha Rezervimet</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Emri</th>
+                <th>Mbiemri</th>
+                <th>Email</th>
+                <th>Telefon</th>
+                <th>Adresa</th>
+                <th>Data</th>
+                <th>Persona</th>
+                <th>Shënime</th>
+                <th>Regjistruar më</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while($res = mysqli_fetch_assoc($reservimet)): ?>
+            <tr>
+                <td><?= $res['id'] ?></td>
+                <td><?= htmlspecialchars($res['emri']) ?></td>
+                <td><?= htmlspecialchars($res['mbiemri']) ?></td>
+                <td><?= htmlspecialchars($res['email']) ?></td>
+                <td><?= htmlspecialchars($res['telefoni']) ?></td>
+                <td><?= htmlspecialchars($res['adresa']) ?></td>
+                <td><?= htmlspecialchars($res['data']) ?></td>
+                <td><?= htmlspecialchars($res['persona']) ?></td>
+                <td><?= nl2br(htmlspecialchars($res['shenime'])) ?></td>
+                <td><?= date("d M Y H:i", strtotime($res['created_at'])) ?></td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+
 </div>
+
 <button class="logout" onclick="logout()">Dil nga Admin</button>
 
 <script>
-    function logout() {
-        window.location.href = "LogIn.html";
-    }
+function logout() {
+    window.location.href = "LogIn.html";
+}
 </script>
 
 </body>
