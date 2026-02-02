@@ -17,5 +17,4 @@ VALUES
 
 mysqli_query($conn, $sql);
 
-// nuk bëjmë ridrejtime PHP, JS do e trajtojë alert + redirect
 ?>
