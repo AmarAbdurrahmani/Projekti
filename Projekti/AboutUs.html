@@ -11,7 +11,6 @@
             background-color: #f8f9fa;
         }
 
-        /* HEADER */
         header {
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -71,7 +70,6 @@
             background-color: #ff0c91;
         }
 
-        /* HERO SECTION */
         .hero {
             background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee');
             background-size: cover;
@@ -92,7 +90,6 @@
             margin: 0 auto;
         }
 
-        /* ABOUT SECTION */
         .about-section {
             max-width: 1200px;
             margin: 60px auto;
@@ -119,7 +116,6 @@
             color: #444;
         }
 
-        /* OUR VALUES */
         .values {
             padding: 60px 40px;
             background-color: #fff;
@@ -152,7 +148,6 @@
             margin-bottom: 10px;
         }
 
-        /* FOOTER */
         footer {
             background-color: #e9ecef;
             text-align: center;
@@ -169,7 +164,6 @@
             color: #D6277D;
         }
                 
-        /* mobile nav: prevent horizontal overflow and align to viewport edge */
         @media (max-width: 768px) {
             .about-section img{
                 display: none;
@@ -200,19 +194,16 @@
             .nav-links.show { display: flex; }
             .nav-links a { padding: 12px 16px; border-bottom: 1px solid #eee; width: 100%; box-sizing: border-box; }
 
-            /* kill any remaining horizontal scroll on small devices */
             html, body { overflow-x: hidden; }
         }
     </style>
 
     <script>
-        // add simple toggle (used by hamburger onclick)
         function toggleMenu() {
             const nav = document.querySelector('.nav-links');
             if (!nav) return;
             nav.classList.toggle('show');
         }
-        // ensure menu closed when resizing to desktop
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 const nav = document.querySelector('.nav-links');
