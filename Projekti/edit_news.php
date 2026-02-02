@@ -4,16 +4,14 @@ require_once "News1.php";
 
 $newsObj = new News($conn);
 
-$id = $_GET['id'] ?? 0; // merr id nga URL, default 0
+$id = $_GET['id'] ?? 0; 
 
-// Merr lajmin sipas ID
 $news = $newsObj->getById($id);
 
 if(!$news){
     die("Lajmi nuk u gjet!");
 }
 
-// Update lajmi
 if(isset($_POST['update'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
