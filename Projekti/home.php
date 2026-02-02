@@ -1,12 +1,10 @@
 <?php
 include "db.php";
 
-// Merr përmbajtjen për Home nga tabela 'pages'
 $slug = 'home';
 $result = mysqli_query($conn, "SELECT * FROM pages WHERE slug='$slug'");
 $page = mysqli_fetch_assoc($result);
 
-// Nëse nuk gjendet faqja, vendos mesazh default
 if (!$page) {
     $page = [
         'title' => 'Home',
@@ -41,20 +39,18 @@ if (!$page) {
     </div>
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <h1 class="hero-title">Zbulo Aventurat e Mrekullueshme Malore</h1>
     <p class="hero-subtitle">Eksploro shtegun, natyrën dhe përjetimet që të presin</p>
 </section>
 
-<!-- Main Content -->
+<!---Koleg ketu e shfaqim codin e htmls nga databaza-->
 <main class="container">
-    <?= $page['content'] ?>  <!-- Këtu shfaqim HTML direkt nga databaza -->
+    <?= $page['content'] ?>  
 </main>
 
 
-<!-- Slider Section -->
 <section class="slider">
     <div class="slider-wrapper">
         <div class="slide active" style="background-image:url('images/rugova_canyon.png')">
@@ -84,7 +80,6 @@ if (!$page) {
 </section>
 
 
-<!-- FAQ Section -->
 <section class="faq-section">
     <h2>Pyetje të Shpeshta</h2>
 
@@ -132,7 +127,6 @@ function toggleFAQ(element){
     } else {
         answer.style.display = 'block';
         icon.textContent = '-';
-        // Scroll në fund të përgjigjes
         answer.scrollIntoView({behavior: 'smooth', block: 'end'});
     }
 }
@@ -169,7 +163,6 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-/* Auto slide */
 setInterval(nextSlide, 5000);
 </script>
 
