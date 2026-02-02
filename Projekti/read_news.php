@@ -4,7 +4,6 @@ require_once "News1.php";
 
 $news = new News($conn);
 
-// Merr të gjitha lajmet me OOP
 $result = $news->getAll();
 ?>
 
